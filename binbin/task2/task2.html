@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 02</title>
+  </head>
+<body>
+
+  <h3>污染城市列表</h3>
+  <ul id="aqi-list" style="list-style: none;">
+  </ul>
+
+<script type="text/javascript">
+
+var aqiData = [
+  ["北京", 90],
+  ["上海", 50],
+  ["福州", 10],
+  ["广州", 50],
+  ["成都", 90],
+  ["西安", 100]
+];
+var chnNumChar = ["零","一","二","三","四","五","六","七","八","九"];
+(function () {
+
+  /*
+  在注释下方编写代码
+  遍历读取aqiData中各个城市的数据
+  将空气质量指数大于60的城市显示到aqi-list的列表中
+  */
+  
+  // 先对数组进行冒泡排序
+  var len = aqiData.length, temp, flag, str='';
+  // for (var i = 0; i < len-1; i++) {
+  //   flag = false;
+  //   for (var j = len-1; j > i; j--) {
+  //     if (aqiData[j-1][1] > aqiData[j][1]) {
+  //       flag = true;
+  //       temp = aqiData[j];
+  //       aqiData[j] = aqiData[j-1];
+  //       aqiData[j-1] = temp;
+  //     }
+  //   }
+  //   if (!flag) {
+  //     break;
+  //   }
+  // }
+  // 冒泡排序，把aqi>60的往后冒
+  for (var i = len - 1; i > 0; i--) {
+    flag = true;
+    for (var j = 0; j < i; j++) {
+      if((aqiData[j][1] > aqiData[j+1][1]) && (aqiData[j][1]>=60)) {  // 题设只关心60以上的城市排名
+        flag = false;
+        temp = aqiData[j];
+        aqiData[j] = aqiData[j+1];
+        aqiData[j+1] = temp;
+      }
+    }
+    if (flag) {
+      break;
+    }
+  }
+  // 将aqi>=60的城市显示
+  for (var i = len - 1; i >= 0 && aqiData[i][1] > 60; i--) {
+    str += '<li>第' + chnNumChar[len-i] + '名: ' + aqiData[i][0] + ', ' + aqiData[i][1] + '</li>'
+  }
+  document.getElementById('aqi-list').innerHTML = str;
+})();
+</script>
+</body>
+</html>
