@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 03</title>
+  </head>
+<body>
+
+  <ul id="source">
+    <li>北京空气质量：<b>90</b></li>
+    <li>上海空气质量：<b>70</b></li>
+    <li>天津空气质量：<b>80</b></li>
+    <li>广州空气质量：<b>50</b></li>
+    <li>深圳空气质量：<b>40</b></li>
+    <li>福州空气质量：<b>32</b></li>
+    <li>成都空气质量：<b>90</b></li>
+  </ul>
+
+  <ul id="resort">
+    <!-- 
+    <li>第一名：北京空气质量：<b>90</b></li>
+    <li>第二名：北京空气质量：<b>90</b></li>
+    <li>第三名：北京空气质量：<b>90</b></li>
+     -->
+
+  </ul>
+
+  <button id="sort-btn">排序</button>
+
+<script type="text/javascript">
+  var chnNumChar = ["零","一","二","三","四","五","六","七","八","九"];
+/**
+ * getData方法
+ * 读取id为source的列表，获取其中城市名字及城市对应的空气质量
+ * 返回一个数组，格式见函数中示例
+ */
+function getData() {
+  var oldLis, score, city, data=[];
+  oldLis = document.getElementById('source').getElementsByTagName('li');
+  for (var i = 0; i < oldLis.length; i++) {  // 要考虑到数字不是两位，城市名称不是两个字的情况
+    var index = oldLis[i].innerHTML.indexOf('<b>'); // 先找到标签<b>字符串的起始位置，往前去掉“空气质量：” 5个字符
+    city = oldLis[i].innerHTML.slice(0, index-5);
+    score = parseInt(oldLis[i].getElementsByTagName('b')[0].innerText); // b标签中是分数
+    data.push([city, score]);
+  }
+  return data;
+
+}
+
+/**
+ * sortAqiData
+ * 按空气质量对data进行从小到大的排序
+ * 返回一个排序后的数组
+ */
+function sortAqiData(data) {
+  // 冒泡排序，改变了原data数组
+  // var len=data.length, temp;
+  // for (var i = 0; i < len-1; i++) {
+  //   flag = false;
+  //   for (var j = len-1; j > i; j--) {
+  //     if (data[j-1][1] > data[j][1]) {
+  //       flag = true;
+  //       temp = data[j];
+  //       data[j] = data[j-1];
+  //       data[j-1] = temp;
+  //     }
+  //   }
+  //   if (!flag) {
+  //     break;
+  //   }
+  // }
+  // return data;
+  
+  // 利用插入排序，另用一新数组
+  var newArr = [data[data.length-1]], index;
+  for (var i = data.length - 2; i >= 0; i--) {
+    for (var j = newArr.length - 1; j >= 0; j--) {
+      index = 0;
+      if(newArr[j][1] < data[i][1]){
+        index = j+1;
+        break;
+      }
+    }
+    newArr.splice(index, 0, data[i]);
+  }
+
+  return newArr;
+}
+
+/**
+ * render
+ * 将排好序的城市及空气质量指数，输出显示到id位resort的列表中
+ * 格式见ul中的注释的部分
+ */
+function render(data) {
+  var str = '', len = data.length;
+  for (var i = len - 1; i >= 0; i--) {  //缺点：没考虑到城市数量大于九的情况
+    str += '<li>第' + chnNumChar[len-i] + '名：' + data[i][0] + '空气质量：<b>' + data[i][1] + '</b></li>';
+  }
+  document.getElementById('resort').innerHTML = str;
+}
+/**
+ * 千亿以内的阿拉伯数字转中文
+ * @param  {[int]} num [要转成中文的数字]
+ * @return {[string]}     [中文字符串]
+ */
+function numToChn(num){
+  // 先判断参数num是否为整数
+  var num = parseInt(num);
+  if (isNaN(num)) {
+    return '参数非数字';
+  }
+  // 判断数字有无超出转换范围
+  var numStr = num+"";
+  if(numStr.length > 12) {
+    return '超出可转换的范围';
+  }
+  var chnNumChar = ["零","一","二","三","四","五","六","七","八","九"];
+  var unitChar = ["十", "百", "千", "万", "亿"];
+  if(numStr.length > 8) {
+
+  }
+
+  // 内部函数，4位以内数字转中文
+  function numToChn1(num) {
+    // var str = chnNumChar[num/1000] + '千' + chnNumChar[num%1000/100] + '百' + chnNumChar[num%100/10] + '十' + chnNumChar[num%10];
+    // 重写，考虑00的读法，包括末尾0不读
+  }
+}
+function btnHandle() {
+  var aqiData = getData();
+  aqiData = sortAqiData(aqiData);
+  render(aqiData);
+}
+
+function init() {
+
+  // 在这下面给sort-btn绑定一个点击事件，点击时触发btnHandle函数
+  document.getElementById('sort-btn').onclick = btnHandle;
+}
+
+init();
+
+</script>
+</body>
+</html>
