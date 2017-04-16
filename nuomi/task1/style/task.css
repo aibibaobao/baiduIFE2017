@@ -1,0 +1,297 @@
+/*深红 FF298C*/
+/*浅红 FB8BBD*/
+*{
+    margin: 0;
+    padding: 0;
+}
+html, body{
+	width: 100%;
+	height: 100%;
+}
+body>div{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 100px;
+	height: 100px;
+	box-sizing: border-box;
+	margin: 0 auto;
+	border: 4px solid #FF298C;
+	border-radius: 50%;
+	
+	        transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);		/* IE 9 */
+	-webkit-transform: translate(-50%, -50%);	/* Safari and Chrome */
+       -o-transform: translate(-50%, -50%);		/* Opera */
+     -moz-transform: translate(-50%, -50%);	*/	/* Firefox */
+  /*overflow: hidden;*/
+
+}
+.out-sector{
+	position: absolute;
+	top: -100px;
+	border-style: solid;
+	border-width: 150px 50px;
+	border-color: transparent;
+	border-top-color: #fff;
+	box-sizing: border-box;
+	        transform: rotate(15deg);
+	    -ms-transform: rotate(15deg);
+	-webkit-transform: rotate(15deg);
+	     -o-transform: rotate(15deg);
+	   -moz-transform: rotate(15deg);
+	/*外部缺口转动效果*/
+	        animation: myRotate1 1s linear infinite;
+	-webkit-animation: myRotate1 1s linear infinite;
+}
+@keyframes myRotate1{
+	from{
+		      transform: rotate(15deg);
+	    -ms-transform: rotate(15deg);
+	-webkit-transform: rotate(15deg);
+	     -o-transform: rotate(15deg);
+	   -moz-transform: rotate(15deg);
+	}
+	to{
+		      transform: rotate(375deg);
+	    -ms-transform: rotate(375deg);
+	-webkit-transform: rotate(375deg);
+	     -o-transform: rotate(375deg);
+	   -moz-transform: rotate(375deg);
+	}
+}
+/*兼容safari*/
+@-webkit-keyframes myRotate1{
+	from{
+		      transform: rotate(15deg);
+	-webkit-transform: rotate(15deg);
+	}
+	to{
+		      transform: rotate(375deg);
+	-webkit-transform: rotate(375deg);
+	}
+}
+.inner{
+	position: absolute;
+	top: 21px;
+	left: 21px;
+	width: 50px;
+	height: 50px;
+	background-color: #FF298C;
+	border-radius: 50%;
+}
+.inner>div{
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background-color: #FB8BBD;
+}
+.inner-left{
+	clip: rect(0px, 25px, 50px, 0px);
+	animation: myRotate3 2s linear infinite;
+}
+.inner-right{
+	/*z-index: 2;*/
+	clip: rect(0px, 50px, 50px, 25px);
+	animation: myRotate2 2s linear infinite;
+}
+div.inner-right-t{
+	background-color: #FF298C;
+	clip: rect(0px, 50px, 50px, 25px);
+	animation: myRotate4 2s linear infinite;
+}
+@keyframes myRotate2{
+	0%  {
+		      transform: rotate(0deg);
+		  -ms-transform: rotate(0deg);
+	-webkit-transform: rotate(0deg);
+	     -o-transform: rotate(0deg);
+	   -moz-transform: rotate(0deg);
+		z-index: 2;
+	}
+	25% {
+		        transform:rotate(180deg);
+		    -ms-transform:rotate(180deg);
+		-webkit-transform:rotate(180deg);
+		     -o-transform:rotate(180deg);
+		   -moz-transform:rotate(180deg);
+	}
+	50% {
+		        transform:rotate(180deg);
+		    -ms-transform:rotate(180deg);
+		-webkit-transform:rotate(180deg);
+		     -o-transform:rotate(180deg);
+		   -moz-transform:rotate(180deg);
+	}
+	75% {
+		        transform:rotate(360deg);
+		    -ms-transform:rotate(360deg);
+		-webkit-transform:rotate(360deg);
+		     -o-transform:rotate(360deg);
+		   -moz-transform:rotate(360deg);
+	}
+	100%{
+		        transform:rotate(360deg);
+		    -ms-transform:rotate(360deg);
+		-webkit-transform:rotate(360deg);
+		     -o-transform:rotate(360deg);
+		   -moz-transform:rotate(360deg);
+	}
+}
+@keyframes myRotate3{
+	0%  {
+		      transform: rotate(0deg);
+		  -ms-transform: rotate(0deg);
+	-webkit-transform: rotate(0deg);
+	     -o-transform: rotate(0deg);
+	   -moz-transform: rotate(0deg);
+		z-index: 2;
+	}
+	50% {
+		      transform: rotate(0deg);
+		  -ms-transform: rotate(0deg);
+	-webkit-transform: rotate(0deg);
+	     -o-transform: rotate(0deg);
+	   -moz-transform: rotate(0deg);
+	}
+	75% {
+			      transform:rotate(180deg);
+		    -ms-transform:rotate(180deg);
+		-webkit-transform:rotate(180deg);
+		     -o-transform:rotate(180deg);
+		   -moz-transform:rotate(180deg);
+	}
+	100%{
+		        transform:rotate(360deg);
+		    -ms-transform:rotate(360deg);
+		-webkit-transform:rotate(360deg);
+		     -o-transform:rotate(360deg);
+		   -moz-transform:rotate(360deg);
+	}
+}
+@keyframes myRotate4{
+	0%  {
+		      transform: rotate(0deg);
+		  -ms-transform: rotate(0deg);
+	-webkit-transform: rotate(0deg);
+	     -o-transform: rotate(0deg);
+	   -moz-transform: rotate(0deg);
+		z-index: -1;
+	}
+	25% {
+		      transform: rotate(0deg);
+		  -ms-transform: rotate(0deg);
+	-webkit-transform: rotate(0deg);
+	     -o-transform: rotate(0deg);
+	   -moz-transform: rotate(0deg);
+		z-index: -1;
+	}
+	25.001% {
+		z-index: 3;
+	}
+	50% {
+		        transform:rotate(180deg);
+		    -ms-transform:rotate(180deg);
+		-webkit-transform:rotate(180deg);
+		     -o-transform:rotate(180deg);
+		   -moz-transform:rotate(180deg);
+		z-index: 3;
+	}
+	75% {
+		        transform:rotate(180deg);
+		    -ms-transform:rotate(180deg);
+		-webkit-transform:rotate(180deg);
+		     -o-transform:rotate(180deg);
+		   -moz-transform:rotate(180deg);
+		z-index: 3;
+	}
+	75.001% {
+		z-index: -1;
+	}
+	100%{
+		        transform:rotate(360deg);
+		    -ms-transform:rotate(360deg);
+		-webkit-transform:rotate(360deg);
+		     -o-transform:rotate(360deg);
+		   -moz-transform:rotate(360deg);
+		z-index: -1;
+	}
+}
+/*兼容safari*/
+@-webkit-keyframes myRotate2{
+	0%  {
+		      transform: rotate(0deg);
+	-webkit-transform: rotate(0deg);
+		z-index: 2;
+	}
+	25% {
+		        transform:rotate(180deg);
+		-webkit-transform:rotate(180deg);
+	}
+	50% {
+		        transform:rotate(180deg);
+		-webkit-transform:rotate(180deg);
+	}
+	75% {
+		        transform:rotate(360deg);
+		-webkit-transform:rotate(360deg);
+	}
+	100%{
+		        transform:rotate(360deg);
+		-webkit-transform:rotate(360deg);
+	}
+}
+@-webkit-keyframes myRotate3{
+	0%  {
+		      transform: rotate(0deg);
+	-webkit-transform: rotate(0deg);
+		z-index: 2;
+	}
+	50% {
+		      transform: rotate(0deg);
+	-webkit-transform: rotate(0deg);
+	}
+	75% {
+			      transform:rotate(180deg);
+		-webkit-transform:rotate(180deg);
+	}
+	100%{
+		        transform:rotate(360deg);
+		-webkit-transform:rotate(360deg);
+	}
+}
+@-webkit-keyframes myRotate4{
+	0%  {
+		      transform: rotate(0deg);
+	-webkit-transform: rotate(0deg);
+		z-index: -1;
+	}
+	25% {
+		      transform: rotate(0deg);
+	-webkit-transform: rotate(0deg);
+		z-index: -1;
+	}
+	25.001% {
+		z-index: 3;
+	}
+	50% {
+		        transform:rotate(180deg);
+		-webkit-transform:rotate(180deg);
+		z-index: 3;
+	}
+	75% {
+		        transform:rotate(180deg);
+		-webkit-transform:rotate(180deg);
+		z-index: 3;
+	}
+	75.001% {
+		z-index: -1;
+	}
+	100%{
+		        transform:rotate(360deg);
+		-webkit-transform:rotate(360deg);
+		z-index: -1;
+	}
+}
+

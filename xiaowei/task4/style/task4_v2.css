@@ -1,14 +1,16 @@
 html, body {
     height: 100%;
     margin: 0;
+    display: table;
 }
 /*第一种 外层元素定高 begin*/
 div.out-wrapper {
+    display: table-cell;
     position: relative;
-    top: 50%;
+    /*top: 50%;*/
     width: 400px;
     height: 200px;
-    margin: 0 auto;
+    /*margin: 0 auto;*/
     background-color: #ccc;
     overflow: hidden;
 }
@@ -29,6 +31,5 @@ div.quarter:last-child {
     right: -50px;
     bottom: -50px;
 }
-/*第一种 end*/
 
 

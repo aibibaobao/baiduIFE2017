@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html, body{
+	width: 100%;
+	height: 100%;
+}
+span.indent{
+	display: inline-block;
+	width: 16px;
+}
+span.node-name{
+	margin-left: 5px;
+}
+/*展开、收缩图标*/
+.icon-wrapper{
+	display: inline-block;
+	width: 16px;
+}
+span.icon{
+	display: inline-block;
+	position: relative;
+	width: 16px;
+	height: 16px;
+	box-sizing: border-box;
+	border: 1px solid #999;
+}
+/** 用伪类做图标 */
+span.icon:before{
+	content: " ";
+	width: 10px;
+	height: 2px;
+	position: absolute;
+	top: 6px;
+	left: 2px;
+	background-color: #999;
+}
+span.open:after{
+	content: " ";
+	width: 2px;
+	height: 10px;
+	position: absolute;
+	top: 2px;
+	left: 6px;
+	background-color: #999;
+}
+ul.tree{
+	/*overflow: hidden;*/
+	box-sizing: border-box;
+}
+ul.tree-open{}
+ul.tree-close{
+	display: none;
+}
+
+@keyframes myslidedown{
+	from {}
+	to {padding-bottom :0px;}
+}
+@-webkit-keyframes myslidedown{ /*Safari 和 Chrome*/
+	from {}
+	to {padding-bottom :0px;}
+}

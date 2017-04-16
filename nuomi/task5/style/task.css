@@ -1,0 +1,135 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+	width: 100%;
+	height: 100%;
+}
+.container{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -150px;
+	margin-left: -265px;
+	height: 300px;
+	overflow: hidden;
+}
+.container>img{
+	height: 100%;
+	transition: opacity 0.5s;
+}
+.container:hover>img{
+	opacity: 0.7;
+}
+.wrapper{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding: 20px;
+	box-sizing: border-box;
+}
+/*边框效果 begin*/
+.content{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	box-sizing: border-box;
+	transition: opacity 0.3s, width 0.6s, left 0.6s;
+	overflow: hidden;
+}
+.content:before{
+	content: " ";
+	position: absolute;
+	left: 50%;
+	width: 0;
+	height: 100%;
+	box-sizing: border-box;
+	border-style: solid;
+	border-color: #fff;
+	border-width: 4px 0;
+	opacity: 0;
+	transition: opacity 0.6s, width 1s, left 1s;
+}
+.content:after{
+	content: " ";
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	height: 0;
+	box-sizing: border-box;
+	border-style: solid;
+	border-color: #fff;
+	border-width: 0 3px;
+	opacity: 0;
+	transition: opacity 0.6s, height 1s, top 1s;
+}
+.container:hover .content:before{
+	width: 100%;
+	left: 0;
+	opacity: 1;
+}
+.container:hover .content:after{
+	height: 100%;
+	top: 0;
+	opacity: 1;
+}
+/*边框效果 end*/
+
+/*字体上浮效果 begin*/
+.content>h1{
+	padding-top: 150px;
+	font-size: 35px;
+	opacity: 0;
+	transition: opacity 0.6s, padding-top 1s;
+}
+.content>a{
+	display: inline-block;
+	padding-top: 25px;
+	font-size: 25px;
+	font-weight: 600;
+	text-decoration: none;
+	color: #9cc;
+	opacity: 0;
+	transition: opacity 0.6s;
+}
+.container:hover .content>h1{
+	padding-top: 80px;
+	opacity: 1;
+}
+.container:hover .content>a{
+	opacity: 1;
+}
+/*字体上浮效果 end*/
+
+/*字体流光效果 begin*/
+.content>h1{
+	background-image: -webkit-linear-gradient(left top, #9cc, #fcc 10%, #9cc, #fcc 90%, #9cc);
+	-webkit-background-clip: text;
+	background-size: 200% 100%;
+	color: transparent;
+}
+.content>a{
+	background-image: -webkit-linear-gradient(left, #f66, #f99 25%, #f66, #f99 75%, #f66);
+	-webkit-background-clip: text;
+	background-size: 200% 100%;
+	color: transparent;
+}
+.container:hover .content>h1, .container:hover .content>a{
+	-webkit-animation: myMove 2s linear infinite;
+}
+@-webkit-keyframes myMove{
+	from{
+		background-position: 0% 0%;
+	}
+	to{
+		background-position: -100% 0%;
+	}
+}
+
+/*字体流光效果 end*/
+

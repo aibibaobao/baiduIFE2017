@@ -1,0 +1,94 @@
+div{
+    /*position: relative;*/
+    margin: 20px 0;
+}
+div>p {
+    margin: 5px 0;
+}
+#pseudo-class input{
+    display: none;
+}
+#pseudo-class>label:not(.icon){
+    display: inline-block;
+    position: relative;
+    top: -5px;
+}
+#pseudo-class input[type="radio"] + label{
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    outline: none;
+    border: 1px solid #999;
+    border-radius: 50%;
+    background-color: #fff;
+}
+#pseudo-class input[type="radio"]:checked + label{
+    border-color: #D73E33;
+}
+#pseudo-class input[type="radio"]:checked + label:before{
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #D73E33;
+}
+#pseudo-class input[type="checkbox"] + label{
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    outline: none;
+    border: 1px solid #999;
+    background-color: #fff;
+}
+#pseudo-class input[type="checkbox"]:checked + label{
+    border-color: #D73E33;
+}
+#pseudo-class input[type="checkbox"]:checked + label:before{
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    width: 10px;
+    height: 6px;
+    border-left: 3px solid #D73E33;
+    border-bottom: 3px solid #D73E33;
+            transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);       /* IE 9 */
+    -webkit-transform: rotate(-45deg);       /* Safari and Chrome */
+         -o-transform: rotate(-45deg);       /* Opera */
+       -moz-transform: rotate(-45deg);       /* Firefox */
+}
+
+/**********************************雪花图实现*******************************************/
+#bg-img input{
+    display: none;
+}
+#bg-img label{
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    box-sizing: border-box;
+    background-image: url(../img/icon.png);
+    background-repeat: no-repeat;
+}
+#bg-img input[type="radio"]+label{
+    background-position: -23px -7px;
+}
+#bg-img input[type="radio"]:checked+label{
+    background-position-x: -57px; 
+}
+#bg-img input[type="checkbox"]+label{
+    background-position: -23px -27px;
+}
+#bg-img input[type="checkbox"]:checked+label{
+    background-position-x: -57px; 
+}

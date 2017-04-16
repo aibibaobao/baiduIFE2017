@@ -1,0 +1,205 @@
+body {
+    margin: 0;
+    background-color: #DEDEDE;
+}
+
+header {
+    width: 100%;
+    height: 60px;
+    background-color: #333;
+}
+
+h1 {
+    float: left;
+    width: 200px;
+    height: 40px;
+    margin: 0;
+    padding: 10px 0 0 40px;
+}
+
+h1 span {
+    position: absolute;
+    left: -500px;
+}
+
+h1 img {
+    height: 40px;
+}
+
+nav {
+    float: right;
+}
+
+nav ul li {
+    float: left;
+    margin-right: 30px;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+nav a:link,
+nav a:visited {
+    color: #fff;
+}
+
+nav a:hover,
+nav a:active {
+    color: #aaa;
+}
+
+main {
+    margin-right: 440px;
+    /*position: absolute;
+    right: 440px;
+    top: 60px;*/
+}
+
+article {
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 3px 3px 1px #888;
+    background-color: #fff;
+}
+
+h3 {
+    color: #555;
+}
+
+p.author {
+    color: #888;
+    font-size: 0.8em;
+}
+
+p.content {
+    text-indent: 2em;
+}
+
+article ul {
+    list-style: none;
+}
+
+section {
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 3px 3px 1px #888;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+section figure {
+    /*max-width: min-content;*/ /*这种方式只在Chrome中支持*/
+    float: left;
+    padding: 10px 10px 0;
+    border: 1px solid #aaa;
+}
+
+section figure img {
+	display: block;
+    width: 100px;
+	margin: 10px auto;
+}
+
+section figure figcaption {
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table thead {
+    color: #fff;
+    background-color: #333;
+    text-align: left;
+}
+
+table tfoot {
+    background-color: #DEDEDE;
+}
+
+table th,
+table td {
+    border: 1px solid #aaa;
+}
+
+aside {
+    /*float: right;*/
+    position: absolute;
+    right: 0;
+    top: 60px;
+    width: 380px;
+    padding: 20px;
+    margin: 20px;
+    background-color: #fff;
+    box-shadow: 3px 3px 1px #888;
+}
+
+aside h3 {
+    padding: 5px 15px;
+    border-left: 4px solid #DEDEDE;
+}
+
+form {
+    width: 100%;
+}
+
+form .formRow {
+    width: 100%;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+
+/*有两种方法清除浮动影响 overflow:hidden 或者用 :after */
+/*form .formRow:after{
+	content: ".";
+	width: 0;
+	height: 0;
+	margin: 0;
+	clear: both;
+	visibility: hidden;	
+}*/
+
+form .formRow:last-child {
+    margin-bottom: 0;
+}
+
+form .formLeft {
+    float: left;
+    width: 30%;
+    text-align: right;
+}
+
+form .formRight {
+    float: left;
+    padding-left: 20px;
+}
+
+form label.tip {
+    color: #888;
+    font-size: 0.8em;
+}
+
+form input[name="submit"] {
+    display: block;
+    width: 95%;
+    height: 40px;
+    margin: 0 auto;
+    border-radius: 10px;
+    color: #fff;
+    background-color: #3355D0;
+    border: none;
+    font-size: 1em;
+}
+
+footer {
+    height: 60px;
+    padding-top: 15px;
+    box-sizing: border-box;
+    color: #fff;
+    background-color: #333;
+    text-align: center;
+}

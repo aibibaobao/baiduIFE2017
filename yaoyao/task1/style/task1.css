@@ -1,0 +1,70 @@
+/*红色 D9020A
+绿色 57BC44*/
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    width: 100%;
+}
+form {
+    width: 500px;
+    margin: 20px auto;
+    font-family: "微软雅黑", Verdana, sans-serif;
+    font-size: 20px;
+}
+form .row{
+    margin: 10px 0;
+    overflow: hidden;
+}
+form input[type="text"], form input[type="password"]{
+    width: 90%;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    border: 1px solid #999;
+    border-radius: 5px;
+}
+form input[type="text"]:focus, form input[type="password"]:focus{
+    outline: none;
+    border-color: #6CAEEA;
+}
+form input[type="button"]{
+    width: 60px;
+    height: 36px;
+    background-color: #2F79BA;
+    border: 1px solid #2E6BA1;
+    color: #fff;
+    border-radius: 5px;
+}
+form .row>.row-left{
+    float: left;
+    width: 30%;
+    padding-right: 10px;
+    box-sizing: border-box;
+    text-align: right;
+}
+form .row>.row-right {
+    float: left;
+    width: 70%;
+    text-align: left;
+}
+form .row-right>span.tips{
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #999;
+}
+form .red-tip>input {
+    border-color: #D9020A;
+}
+form .red-tip>span.tips{
+    color: #D9020A; 
+}
+form .green-tip>input {
+    border-color: #57BC44;
+}
+form .green-tip>span.tips{
+    color: #57BC44;
+}
