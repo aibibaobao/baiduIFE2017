@@ -1,0 +1,59 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>动态数据绑定一</title>
+    
+</head>
+<body>
+    <script>
+        function Observer(data){
+            this.data = data;
+            this.change();
+        }
+        Observer.prototype.change =  function (){
+            for(let prop in this.data){
+                if(this.data.hasOwnProperty(prop)){
+                    value = this.data[prop];
+                    this.wrapper(prop, value);
+                    if (typeof value === "object") {
+                        new Observer(value);
+                    }
+                }
+            }
+        };
+        Observer.prototype.wrapper = function(prop, value){
+            Object.defineProperty(this.data, prop, {   // 若this.data中已有prop属性，这个函数会将新定义的性质与其联系起来
+                enumerable:true,
+                configurable:true,
+                set:function(newValue){
+                    console.log("你设置了 "+prop+", 新的值为 "+newValue);
+                    if(typeof newValue === "object"){   // 若设置的新值是对象，也用observer包装
+                        new Observer(newValue);
+                    }
+                    value = newValue;
+                },
+                get:function(){
+                    console.log("你访问了 "+ prop);
+                    // let val = this[prop]; // 不能用this[prop]去访问属性，相当于又一次访问该属性，再一次调用get函数
+                    return value; //利用局部变量的闭包性质
+                }
+            });
+            
+        };
+        (function(){
+            let app1 = new Observer({
+              name: 'youngwind',
+              age: 25,
+              city:{a:"beijing", b:"chengdu"}
+            });
+            let app2 = new Observer({
+              university: 'bupt',
+              major: 'computer'
+            });
+        })();
+    </script>
+</body>
+
+</html>
